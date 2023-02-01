@@ -1,0 +1,47 @@
+<h1>{{title}}</h1>
+
+<hr>
+
+<a href="{{URL}}/admin/pedidos" ><button type="button" class="btn btn-warning">Voltar</button></a>
+<hr>
+
+<form method="post">
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Sabor</label>
+        <select value="{{sabor}}"  name="sabor" class="form-select" id="inputGroupSelect01">
+          <option selected>escolha...</option>
+          <option value="Calabresa">Calabresa</option>
+          <option value="4 Queijos">4 Queijos</option>
+          <option value="Bacon">Bacon</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect02">Tamanho</label>
+        <select value="{{tamanho}}" name="tamanho" class="form-select" id="inputGroupSelect02" required>
+          <option selected>escolha...</option>
+          <option value="P">Pequena</option>
+          <option value="M">Média</option>
+          <option value="G">Grande</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect03">Quantidade</label>
+        <input value="{{qnt}}" name="qnt" type="number" class="form-control" id="inputGroup03" required>
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect04">Endereço</label>
+        <select value="{{endereco}}" name="endereço" class="form-select" id="inputGroupSelect02" required>
+            <option selected>escolha...</option>
+            {{ends}}
+          </select>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success" type="submit">Enviar</button>
+      </div>
+</form>
+
+<hr>

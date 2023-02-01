@@ -1,0 +1,31 @@
+<h1>{{title}}</h1>
+
+<hr>
+
+{{status}}
+
+<form method="post">
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Sabor :</label>
+        <input type="text" class="form-control" placeholder="{{sabor}}" disabled>
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect02">Tamanho</label>
+        <input type="text" class="form-control" placeholder="{{tamanho}}" disabled> 
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect03">Quantidade</label>
+        <input type="text" class="form-control" placeholder="{{quantidade}} Pizzas" disabled>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect04">Endereço</label>
+        <input type="text" class="form-control" placeholder="{{endereco}}" disabled>
+      </div>
+      <div class="form-group">
+        
+        <button class="btn btn-success" type="submit">Concluir</button>
+        <a href="{{URL}}/admin/pedidos/{{id}}/delete" ><button type="button" class="btn btn-danger">Cancelar</button></a>
+      </div>
+      <hr>
+</form>

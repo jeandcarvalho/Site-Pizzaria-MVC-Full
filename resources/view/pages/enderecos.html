@@ -1,0 +1,87 @@
+<h1>Seus endereços cadastrados</h1>
+{{status}}
+<section id="enderecos">
+
+    {{cadastrados}}
+
+    {{pagination}}
+    
+</section>  
+<hr>
+<section id="form">
+    <h3>Cadastrar novo</h3>
+    <form method="post" action="?page=1">
+        <div class="form-group">
+            <label>CEP</label>
+            <input type="number" class="form-control mb-3" name="cep" 
+            onblur="pesquisacep(this.value);"required>
+        </div>
+        <div class="form-group">
+            <label>Rua</label>
+            <input type="text" class="form-control mb-3" name="rua" required>
+        </div>
+        <div class="form-group">
+            <label>Número</label>
+            <input type="number" class="form-control mb-3" name="numero" required>
+        </div>
+        <div class="form-group">
+            <label>Bairro</label>
+            <input type="text" class="form-control mb-3" name="bairro" required>
+        </div>
+        <div class="form-group">
+            <label>Complemento</label>
+            <input type="text" class="form-control mb-3" name="complement" required>
+        </div>
+        <div class="form-group mt-3 mb-4">
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+        </div>
+    </form>
+</section>
+
+<script type="text/javascript">
+    function pesquisacep(valor) {
+
+    var cep = valor.replace(/\D/g, '');
+
+    if (cep != "") {
+
+    var validacep = /^[0-9]{8}$/;
+
+    if(validacep.test(cep)) {
+
+        rua.value="...";
+        bairro.value="...";
+
+        var script = document.createElement('script');
+        script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+        document.body.appendChild(script);
+
+    } else {
+        limpa_formulário_cep();
+        
+        }
+    } else {
+        limpa_formulário_cep();
+    }
+};
+
+function limpa_formulário_cep() {
+    rua.value=("");
+    bairro.value=("");
+}
+
+function meu_callback(conteudo) {
+    if (!("erro" in conteudo)) {
+    	rua.value=(conteudo.logradouro);
+    	bairro.value=(conteudo.bairro);
+
+   		rua.disabled = true;
+   		bairro.disabled = true;
+
+    } else {
+        limpa_formulário_cep();
+        rua.disabled = false;
+   		bairro.disabled = false;
+    }
+}
+</script>   
